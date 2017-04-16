@@ -3,7 +3,7 @@ Public Transport of Besançon/France Module for MagicMirror<sup>2</sup>
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TexGG/MMM-Ginko/raw/master/LICENSE)
 [![Dependencies Status](https://david-dm.org/TexGG/MMM-Ginko/status.svg)](https://david-dm.org/TexGG/MMM-Ginko)
-[![Build Status](https://img.shields.io/travis/ianperrin/MMM-ModuleScheduler.svg?maxAge=2592000)](https://travis-ci.org/ianperrin/MMM-ModuleScheduler)
+[![Build Status](https://travis-ci.org/TexGG/MMM-Ginko.svg?branch=master)](https://travis-ci.org/TexGG/MMM-Ginko)
 [![Known Vulnerabilities](https://snyk.io/test/github/texgg/mmm-ginko/badge.svg)](https://snyk.io/test/github/texgg/mmm-ginko)
 
 
