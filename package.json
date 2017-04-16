@@ -1,0 +1,24 @@
+{
+  "name": "mmm-ginko",
+  "version": "1.0.0",
+  "description": "Public Transport of Besançon/France Module for MagicMirror2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TexGG/MMM-Ginko.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "Besançon",
+    "Ginko",
+    "Public Transport"
+  ],
+  "author": "Tex",
+  "license": "MIT Licensed",
+  "bugs": {
+    "url": "https://github.com/TexGG/MMM-Ginko/issues"
+  },
+  "homepage": "https://github.com/TexGG/MMM-Ginko#readme",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}
