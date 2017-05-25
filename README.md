@@ -26,8 +26,8 @@ Public Transport of Besançon/France Module for MagicMirror<sup>2</sup>
         position: "top_right",
         config: {
             stations: ["Gare Viotte","Pont Chemin Français","Pont Chemin Français","Pont Chemin Français","Pont Chemin Français"],
-			lignes: ["102","23","24","23","24"],
-			sens: ["0","0","0","1","1"]
+            lines: ["102","23","24","23","24"],
+            directions: ["0","0","0","1","1"]
         }
     }
     ```
