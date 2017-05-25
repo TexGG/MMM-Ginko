@@ -15,19 +15,19 @@ Module.register("MMM-Ginko", {
     },
 
     defaults: {
-		max: 2,
-		shortenStation: false,
-		shortenDestination: false,
+        max: 2,
+        shortenStation: false,
+        shortenDestination: false,
         rotateInterval: 10,
         updateInterval: 30,
-		showColored: true
+        showColored: true
     },
 
     getTranslations: function () {
         return {
             en: "translations/en.json",
             de: "translations/de.json",
-			fr: "translations/fr.json"
+            fr: "translations/fr.json"
         };
     },
 
@@ -58,7 +58,7 @@ Module.register("MMM-Ginko", {
             this.stations = payload;
             //this.updateDom(300);
         }
-		if (notification === "LINES") {
+        if (notification === "LINES") {
             this.allLines = payload;
         }
     },
@@ -75,53 +75,53 @@ Module.register("MMM-Ginko", {
         header.appendChild(name);
         wrapper.appendChild(header);
 
-		// if stations undefined, we are loading
+        // if stations undefined, we are loading
         if (!this.stations) {
             var text = document.createElement("div");
             text.innerHTML = this.translate("LOADING");
             text.classList.add("dimmed", "light");
             wrapper.appendChild(text);
         } else {
-			var keys = Object.keys(this.stations);
-			this.maxIndex = keys.length;
-			
-			// if we have stations
-			if (this.maxIndex > 0) {
-				// if rotation index greater than stations max index
-				if(this.index >= this.maxIndex){
-					this.index = 0;
-				}
-				
-				var station_name = this.stations[keys[this.index]].name;
-				
-				// if shortenStation, cut the station name
-				if(this.config.shortenStation && station_name.length > this.config.shortenStation){
-					station_name = station_name.slice(0, this.config.shortenStation) + "&#8230;";
-				}
-				
-				// adding stations name to board
-				var station = document.createElement("div");
-				station.classList.add("align-left");
-				station.innerHTML = station_name;
-				wrapper.appendChild(station);
-				var table = document.createElement("table");
-				table.classList.add("small", "table", "align-left");
+            var keys = Object.keys(this.stations);
+            this.maxIndex = keys.length;
+            
+            // if we have stations
+            if (this.maxIndex > 0) {
+                // if rotation index greater than stations max index
+                if(this.index >= this.maxIndex){
+                    this.index = 0;
+                }
+                
+                var station_name = this.stations[keys[this.index]].name;
+                
+                // if shortenStation, cut the station name
+                if(this.config.shortenStation && station_name.length > this.config.shortenStation){
+                    station_name = station_name.slice(0, this.config.shortenStation) + "&#8230;";
+                }
+                
+                // adding stations name to board
+                var station = document.createElement("div");
+                station.classList.add("align-left");
+                station.innerHTML = station_name;
+                wrapper.appendChild(station);
+                var table = document.createElement("table");
+                table.classList.add("small", "table", "align-left");
 
-				// adding rows labels to board
-				table.appendChild(this.createLabelRow());
+                // adding rows labels to board
+                table.appendChild(this.createLabelRow());
 
-				// adding all departures to board
-				for (var i = 0; i < this.stations[keys[this.index]].departures.length; i++) {
-					this.appendDataRow(this.stations[keys[this.index]].departures[i], table);
-				}
+                // adding all departures to board
+                for (var i = 0; i < this.stations[keys[this.index]].departures.length; i++) {
+                    this.appendDataRow(this.stations[keys[this.index]].departures[i], table);
+                }
 
-				wrapper.appendChild(table);
-			} else { // else no traffic
-				var text = document.createElement("div");
-				text.innerHTML = this.translate("NOTRAFFIC");
-				text.classList.add("dimmed", "light");
-				wrapper.appendChild(text);
-			}
+                wrapper.appendChild(table);
+            } else { // else no traffic
+                var text = document.createElement("div");
+                text.innerHTML = this.translate("NOTRAFFIC");
+                text.classList.add("dimmed", "light");
+                wrapper.appendChild(text);
+            }
         }
 
         return wrapper;
@@ -158,37 +158,37 @@ Module.register("MMM-Ginko", {
         timeIconLabel.appendChild(timeIcon);
         labelRow.appendChild(timeIconLabel);
 
-		// add label row to board
+        // add label row to board
         return labelRow;
     },
 
     appendDataRow: function (data, appendTo) {
         var row = document.createElement("tr");
 
-		// line type icon cell
+        // line type icon cell
         var type = document.createElement("td");
         type.classList.add("centered");
         var typeIcon = document.createElement("i");
-		// get the line type (bus, tramway, ...) with the line id
-		var line_type = this.getType(data.lineId);
+        // get the line type (bus, tramway, ...) with the line id
+        var line_type = this.getType(data.lineId);
         typeIcon.classList.add("fa", this.types.hasOwnProperty(line_type) ? this.types[line_type] : "fa-question");
         type.appendChild(typeIcon);
         row.appendChild(type);
 
-		// line number cell with color
+        // line number cell with color
         var line = document.createElement("td");
         line.classList.add("centered");
         line.innerHTML = data.line;
-		// if showColored, put color on the cell
-		if (this.config.showColored) {
-			line.style.color = "#" + data.couleurTexte;
-			line.style.backgroundColor = "#" + data.couleurFond;
-		}
+        // if showColored, put color on the cell
+        if (this.config.showColored) {
+            line.style.color = "#" + data.couleurTexte;
+            line.style.backgroundColor = "#" + data.couleurFond;
+        }
         row.appendChild(line);
 
-		// destination cell
+        // destination cell
         var destination_name = data.towards;
-		// if shortenDestination, cut the destination name
+        // if shortenDestination, cut the destination name
         if(this.config.shortenDestination && destination_name.length > this.config.shortenDestination){
             destination_name = destination_name.slice(0, this.config.shortenDestination) + "&#8230;";
         }
@@ -196,27 +196,27 @@ Module.register("MMM-Ginko", {
         towards.innerHTML = destination_name;
         row.appendChild(towards);
 
-		// time cell
+        // time cell
         var time = document.createElement("td");
         time.classList.add("centered");
         time.innerHTML = data.time;
-		// if showColored and data not reliable
-		if (this.config.showColored && !data.fiable) {
-			time.style.color = "red";
-		}
+        // if showColored and data not reliable
+        if (this.config.showColored && !data.fiable) {
+            time.style.color = "red";
+        }
         row.appendChild(time);
 
-		// add row to board
+        // add row to board
         appendTo.appendChild(row);
     },
-	
-	getType: function(lineId) {
-		// if lines collected
-		if (!this.allLines) {
-			return -1;
-		} else {
-			// return type of the line in parameter
-			return this.allLines[lineId].modeTransport;
-		}
-	}
+    
+    getType: function(lineId) {
+        // if lines collected
+        if (!this.allLines) {
+            return -1;
+        } else {
+            // return type of the line in parameter
+            return this.allLines[lineId].modeTransport;
+        }
+    }
 });
