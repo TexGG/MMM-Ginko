@@ -10,8 +10,8 @@ const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
 
-    getListeTempsUrl: "https://www.ginkoopenapi.fr/TR/getListeTemps.do?",
-    getLignesUrl: "https://www.ginkoopenapi.fr/DR/getLignes.do",
+    getListeTempsUrl: "https://api.ginko.voyage/TR/getListeTemps.do?",
+    getLignesUrl: "https://api.ginko.voyage/DR/getLignes.do",
     
 
     start: function() {

@@ -36,8 +36,8 @@ Public Transport of Besançon/France Module for MagicMirror<sup>2</sup>
 ## Config Options
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| `stations` | REQUIRED | Insert here the stations names you want to display data from [How to find a name ?](https://www.ginkoopenapi.fr/DR/getArrets.do). |
-| `lines` | REQUIRED | Insert here the lines ids you want to display data from [How to find a line ID ?](https://www.ginkoopenapi.fr/DR/getLignes.do). |
+| `stations` | REQUIRED | Insert here the stations names you want to display data from [How to find a name ?](https://api.ginko.voyage/DR/getArrets.do). |
+| `lines` | REQUIRED | Insert here the lines ids you want to display data from [How to find a line ID ?](https://api.ginko.voyage/DR/getLignes.do). |
 | `directions` | REQUIRED | Insert here lines direction (back = 0, forth = 1). |
 | `max` | `5` | How many departures per route should be displayed. |
 | `shortenStation` | `false` | After how many characters the station name should be cut. Default: show full name. |

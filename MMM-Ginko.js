@@ -32,7 +32,7 @@ Module.register("MMM-Ginko", {
     },
 
     getScripts: function() {
-        return ["https://www.ginkoopenapi.fr/api.js"];
+        return ["https://api.ginko.voyage/api.js"];
     },
 
     getStyles: function () {
